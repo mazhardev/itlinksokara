@@ -96,17 +96,14 @@ textarea {
   gap: 12px;
 }
 
-.brand-mark {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  color: var(--white);
-  font-weight: 800;
-  letter-spacing: 0;
-  background:
-    linear-gradient(135deg, var(--red) 0 36%, transparent 36%),
-    linear-gradient(135deg, var(--blue), var(--navy));
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  object-fit: contain;
+  padding: 3px;
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
 }
@@ -823,6 +820,11 @@ textarea {
   color: var(--white);
 }
 
+.footer-brand .brand-logo {
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: none;
+}
+
 .site-footer h3 {
   margin: 0 0 14px;
   color: var(--white);
@@ -993,6 +995,12 @@ textarea {
 
   .brand small {
     display: none;
+  }
+
+  .brand-logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
   }
 
   .hero-actions,
