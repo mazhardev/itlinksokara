@@ -420,7 +420,6 @@ textarea {
 .info-card,
 .product-card,
 .package-card,
-.quote-form,
 .about-panel,
 .about-copy,
 .contact-info {
@@ -610,8 +609,7 @@ textarea {
 
 .about-panel,
 .about-copy,
-.contact-info,
-.quote-form {
+.contact-info {
   padding: clamp(26px, 4vw, 42px);
 }
 
@@ -708,6 +706,11 @@ textarea {
   align-items: start;
 }
 
+.contact-section .contact-grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 920px;
+}
+
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
@@ -718,89 +721,6 @@ textarea {
 .contact-list {
   display: grid;
   gap: 10px;
-}
-
-.map-placeholder {
-  min-height: 220px;
-  display: grid;
-  align-content: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 24px;
-  color: var(--white);
-  background:
-    linear-gradient(135deg, rgba(8, 27, 51, 0.72), rgba(24, 89, 168, 0.58)),
-    repeating-linear-gradient(90deg, #dfe7ef 0 2px, transparent 2px 62px),
-    repeating-linear-gradient(0deg, #dfe7ef 0 2px, #edf2f7 2px 62px);
-  border-radius: var(--radius);
-}
-
-.map-placeholder span {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.9rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.quote-form {
-  scroll-margin-top: 100px;
-}
-
-.quote-form h2 {
-  margin: 0 0 22px;
-  color: var(--navy);
-}
-
-.quote-form label {
-  display: block;
-  margin: 15px 0 7px;
-  color: var(--navy);
-  font-weight: 800;
-}
-
-.quote-form input,
-.quote-form select,
-.quote-form textarea {
-  width: 100%;
-  padding: 13px 14px;
-  color: var(--ink);
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.quote-form input:focus,
-.quote-form select:focus,
-.quote-form textarea:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(24, 89, 168, 0.12);
-}
-
-.quote-form .is-invalid {
-  border-color: var(--red);
-}
-
-.error-message {
-  min-height: 18px;
-  display: block;
-  margin-top: 4px;
-  color: var(--red);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.quote-form button {
-  width: 100%;
-  margin-top: 14px;
-}
-
-.form-success {
-  min-height: 24px;
-  margin: 16px 0 0;
-  color: var(--green-dark);
-  font-weight: 800;
 }
 
 .site-footer {

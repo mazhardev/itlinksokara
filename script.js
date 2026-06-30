@@ -3,7 +3,6 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navPanel = document.querySelector(".nav-panel");
 const navLinks = document.querySelectorAll(".nav-links a");
 const backToTop = document.querySelector(".back-to-top");
-const quoteForm = document.querySelector(".quote-form");
 const sections = document.querySelectorAll("main section[id]");
 
 function closeMenu() {
@@ -74,68 +73,4 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => {
   revealObserver.observe(element);
-});
-
-function setError(field, message) {
-  const error = field.nextElementSibling;
-  field.classList.toggle("is-invalid", Boolean(message));
-  if (error && error.classList.contains("error-message")) {
-    error.textContent = message;
-  }
-}
-
-function validateForm(form) {
-  let isValid = true;
-  const name = form.elements.name;
-  const phone = form.elements.phone;
-  const service = form.elements.service;
-  const message = form.elements.message;
-  const phonePattern = /^[0-9+\-\s()]{7,18}$/;
-
-  if (name.value.trim().length < 2) {
-    setError(name, "Please enter your full name.");
-    isValid = false;
-  } else {
-    setError(name, "");
-  }
-
-  if (!phonePattern.test(phone.value.trim())) {
-    setError(phone, "Please enter a valid phone number.");
-    isValid = false;
-  } else {
-    setError(phone, "");
-  }
-
-  if (!service.value) {
-    setError(service, "Please select a service.");
-    isValid = false;
-  } else {
-    setError(service, "");
-  }
-
-  if (message.value.trim().length < 8) {
-    setError(message, "Please add a short message.");
-    isValid = false;
-  } else {
-    setError(message, "");
-  }
-
-  return isValid;
-}
-
-quoteForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const success = quoteForm.querySelector(".form-success");
-
-  if (!validateForm(quoteForm)) {
-    success.textContent = "";
-    return;
-  }
-
-  success.textContent = "Thank you! Your request has been received. I.T LINKS will contact you soon.";
-  quoteForm.reset();
-});
-
-quoteForm.querySelectorAll("input, select, textarea").forEach((field) => {
-  field.addEventListener("input", () => setError(field, ""));
 });
