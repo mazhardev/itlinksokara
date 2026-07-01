@@ -1,37 +1,16 @@
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
-import RelatedLinks from "@/components/RelatedLinks";
-import SEO, { buildPageMetadata } from "@/components/SEO";
-import { pageSeo, products, services, site } from "@/lib/siteData";
+import { products } from "@/lib/siteData";
 
-export function generateMetadata() {
-  return buildPageMetadata(pageSeo.products);
-}
+export const metadata = {
+  title: "Products",
+  description:
+    "CCTV cameras, DVR/NVR systems, monitors, network switches, cables, connectors, and solar security solutions in Okara."
+};
 
 export default function ProductsPage() {
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "@id": `${site.url}/products#products`,
-    name: "CCTV camera products in Okara",
-    itemListElement: products.map((product, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: product.title,
-      description: product.text
-    }))
-  };
-  const relatedItems = services.slice(0, 4).map((service) => ({
-    label: service.title,
-    href: service.href,
-    text: service.keywords
-  }));
-
   return (
     <>
-      <SEO schemas={productSchema} />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products" }]} />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
@@ -110,8 +89,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-
-      <RelatedLinks title="Services Related To CCTV Products" items={relatedItems} />
 
       <CTASection
         kicker="Product Quote"

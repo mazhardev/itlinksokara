@@ -1,28 +1,17 @@
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
-import SEO, { buildPageMetadata } from "@/components/SEO";
 import { assetPath } from "@/lib/paths";
-import { business, pageSeo, site } from "@/lib/siteData";
+import { business } from "@/lib/siteData";
 
-export function generateMetadata() {
-  return buildPageMetadata(pageSeo.about);
-}
+export const metadata = {
+  title: "About",
+  description:
+    "About I.T LINKS CCTV Camera and Network Solutions Okara, a local CCTV camera store, network solutions, and solar energy service provider."
+};
 
 export default function AboutPage() {
-  const aboutSchema = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "@id": `${site.url}/about#about`,
-    name: pageSeo.about.title,
-    description: pageSeo.about.description,
-    about: { "@id": `${site.url}/#localbusiness` }
-  };
-
   return (
     <>
-      <SEO schemas={aboutSchema} />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About", href: "/about" }]} />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
@@ -41,14 +30,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="logo-feature reveal">
-            <img
-              src={assetPath(business.logo)}
-              alt="I.T LINKS CCTV Camera and Network Solutions logo in Okara"
-              width="158"
-              height="158"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src={assetPath(business.logo)} alt="I.T LINKS CCTV Camera and Network Solutions logo" />
             <strong>{business.name}</strong>
             <span>CCTV Camera Store | Network Solutions | Solar Energy Service</span>
           </div>

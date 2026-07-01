@@ -47,8 +47,6 @@ export default function Header() {
             alt="I.T LINKS CCTV Camera and Network Solutions logo"
             width="58"
             height="58"
-            decoding="async"
-            fetchPriority="high"
           />
           <span>
             <strong>{business.shortName}</strong>
@@ -72,9 +70,7 @@ export default function Header() {
           <ul className="nav-links">
             {navItems.map((item) => {
               const itemPath = item.href.replace(/\/$/, "") || "/";
-              const isActive =
-                activePath === itemPath ||
-                (itemPath !== "/" && activePath.startsWith(`${itemPath}/`));
+              const isActive = activePath === itemPath;
               return (
                 <li key={item.href}>
                   <Link

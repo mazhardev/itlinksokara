@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { assetPath } from "@/lib/paths";
-import { business, services, targetLocations } from "@/lib/siteData";
+import { business } from "@/lib/siteData";
 
 export default function Footer() {
   return (
@@ -14,8 +14,6 @@ export default function Footer() {
               alt="I.T LINKS logo"
               width="58"
               height="58"
-              loading="lazy"
-              decoding="async"
             />
             <span>
               <strong>{business.shortName}</strong>
@@ -30,25 +28,22 @@ export default function Footer() {
         <div>
           <h3>Quick Links</h3>
           <Link href="/services">Services</Link>
-          <Link href="/services/cctv-installation">CCTV Installation</Link>
           <Link href="/products">Products</Link>
           <Link href="/packages">Packages</Link>
           <Link href="/gallery">Gallery</Link>
         </div>
         <div>
           <h3>Services</h3>
-          {services.slice(0, 5).map((service) => (
-            <Link href={service.href} key={service.href}>
-              {service.title}
-            </Link>
-          ))}
+          <Link href="/services">CCTV Installation</Link>
+          <Link href="/services">CCTV Maintenance</Link>
+          <Link href="/services">Network Setup</Link>
+          <Link href="/services">Solar Energy Service</Link>
         </div>
         <div>
           <h3>Contact</h3>
           <p>{business.phone}</p>
           <p>{business.email}</p>
-          <p>{business.streetAddress}, Okara, Punjab</p>
-          <p>Serving {targetLocations.slice(0, 6).join(", ")}</p>
+          <p>{business.streetAddress}, Okara</p>
           <Link href="/contact">Get Directions</Link>
         </div>
       </div>

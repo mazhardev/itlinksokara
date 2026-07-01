@@ -1,38 +1,15 @@
-import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
-import FAQSection from "@/components/FAQSection";
-import RelatedLinks from "@/components/RelatedLinks";
-import SEO, { buildPageMetadata } from "@/components/SEO";
-import { buildFAQSchema } from "@/components/FAQSchema";
-import { faqs, pageSeo, services, serviceAreas, site, targetLocations } from "@/lib/siteData";
+import { services, serviceAreas } from "@/lib/siteData";
 
-export function generateMetadata() {
-  return buildPageMetadata(pageSeo.services);
-}
+export const metadata = {
+  title: "Services",
+  description:
+    "CCTV installation, maintenance, DVR/NVR setup, IP cameras, network cabling, WiFi router setup, monitoring, and solar security service in Okara."
+};
 
 export default function ServicesPage() {
-  const serviceSchemas = services.map((service) => ({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${site.url}${service.href}#service`,
-    name: `${service.title} in Okara`,
-    serviceType: service.title,
-    description: service.longText,
-    keywords: service.keywords,
-    provider: { "@id": `${site.url}/#localbusiness` },
-    areaServed: targetLocations.map((name) => ({ "@type": "City", name }))
-  }));
-  const relatedItems = services.map((service) => ({
-    label: service.title,
-    href: service.href,
-    text: service.longText
-  }));
-
   return (
     <>
-      <SEO schemas={[...serviceSchemas, buildFAQSchema(faqs, "services-faq")]} />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }]} />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
@@ -77,9 +54,6 @@ export default function ServicesPage() {
                 <span className="card-icon">{service.number}</span>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-                <Link className="card-link" href={service.href}>
-                  View {service.title}
-                </Link>
               </article>
             ))}
           </div>
@@ -132,9 +106,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <RelatedLinks title="Detailed CCTV and Network Service Pages" items={relatedItems} />
-      <FAQSection faqs={faqs} title="CCTV Services Okara FAQs" />
 
       <CTASection
         kicker="Ready To Install?"

@@ -1,42 +1,16 @@
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
-import RelatedLinks from "@/components/RelatedLinks";
-import SEO, { buildPageMetadata } from "@/components/SEO";
-import { packages, pageSeo, services, site } from "@/lib/siteData";
+import { packages } from "@/lib/siteData";
 
-export function generateMetadata() {
-  return buildPageMetadata(pageSeo.packages);
-}
+export const metadata = {
+  title: "Packages",
+  description:
+    "Custom CCTV camera packages for homes, shops, offices, and larger properties in Okara. Basic, business, and premium surveillance quotes."
+};
 
 export default function PackagesPage() {
-  const offerSchema = {
-    "@context": "https://schema.org",
-    "@type": "OfferCatalog",
-    "@id": `${site.url}/packages#packages`,
-    name: "CCTV Packages Okara",
-    itemListElement: packages.map((item) => ({
-      "@type": "Offer",
-      name: item.title,
-      price: "Custom Quote",
-      priceCurrency: "PKR",
-      itemOffered: {
-        "@type": "Service",
-        name: item.title,
-        description: item.items.join(", ")
-      }
-    }))
-  };
-  const relatedItems = services.slice(0, 5).map((service) => ({
-    label: service.title,
-    href: service.href,
-    text: service.text
-  }));
-
   return (
     <>
-      <SEO schemas={offerSchema} />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Packages", href: "/packages" }]} />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
@@ -129,8 +103,6 @@ export default function PackagesPage() {
           </div>
         </div>
       </section>
-
-      <RelatedLinks title="Services Included In CCTV Packages" items={relatedItems} />
 
       <CTASection
         kicker="Custom Package"

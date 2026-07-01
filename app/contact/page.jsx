@@ -1,29 +1,16 @@
-import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
-import FAQSection from "@/components/FAQSection";
-import SEO, { buildPageMetadata } from "@/components/SEO";
-import { business, faqs, pageSeo, site } from "@/lib/siteData";
-import { buildFAQSchema } from "@/components/FAQSchema";
+import { business } from "@/lib/siteData";
 
-export function generateMetadata() {
-  return buildPageMetadata(pageSeo.contact);
-}
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact I.T LINKS CCTV Camera and Network Solutions Okara by phone, WhatsApp, email, or visit Church Road near Alfalah Bank."
+};
 
 export default function ContactPage() {
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "@id": `${site.url}/contact#contact`,
-    name: pageSeo.contact.title,
-    description: pageSeo.contact.description,
-    mainEntity: { "@id": `${site.url}/#localbusiness` }
-  };
-
   return (
     <>
-      <SEO schemas={[contactSchema, buildFAQSchema(faqs.slice(0, 4), "contact-faq")]} />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact", href: "/contact" }]} />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
@@ -75,12 +62,10 @@ export default function ContactPage() {
       <section className="section alt-section">
         <div className="container split-grid">
           <div className="map-placeholder reveal" aria-label="Google Map embed placeholder">
-            <iframe
-              title="Google Map for I.T LINKS CCTV Camera & Network Solutions Okara"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(business.mapQuery)}&output=embed`}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <div className="map-grid"></div>
+            <div className="map-pin"></div>
+            <strong>Google Map Embed Placeholder</strong>
+            <span>{business.streetAddress}, Okara</span>
           </div>
           <div className="content-panel reveal">
             <p className="eyebrow">Visit The Shop</p>
@@ -99,8 +84,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <FAQSection faqs={faqs.slice(0, 5)} title="Contact and CCTV Quote FAQs" />
 
       <CTASection
         kicker="Fast Contact"
