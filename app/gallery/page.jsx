@@ -1,17 +1,27 @@
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
 import GalleryLightbox from "@/components/GalleryLightbox";
-import { galleryItems } from "@/lib/siteData";
+import SEO, { buildPageMetadata } from "@/components/SEO";
+import { galleryItems, pageSeo, site } from "@/lib/siteData";
 
-export const metadata = {
-  title: "Gallery",
-  description:
-    "Gallery for CCTV installations, monitoring setups, product demos, and DVR/NVR configuration previews by I.T LINKS Okara."
-};
+export function generateMetadata() {
+  return buildPageMetadata(pageSeo.gallery);
+}
 
 export default function GalleryPage() {
+  const gallerySchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "@id": `${site.url}/gallery#gallery`,
+    name: "CCTV installation gallery Okara",
+    description: pageSeo.gallery.description
+  };
+
   return (
     <>
+      <SEO schemas={gallerySchema} />
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Gallery", href: "/gallery" }]} />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">

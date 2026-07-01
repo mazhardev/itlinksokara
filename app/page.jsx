@@ -1,14 +1,50 @@
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 import CTASection from "@/components/CTASection";
+import FAQSection from "@/components/FAQSection";
 import HeroCarousel from "@/components/HeroCarousel";
 import ProductCarousel from "@/components/ProductCarousel";
-import { business, serviceAreas, services, testimonials } from "@/lib/siteData";
+import RelatedLinks from "@/components/RelatedLinks";
+import SEO, { buildPageMetadata } from "@/components/SEO";
+import { buildFAQSchema } from "@/components/FAQSchema";
+import {
+  business,
+  faqs,
+  pageSeo,
+  primaryKeywords,
+  serviceAreas,
+  services,
+  site,
+  targetLocations,
+  testimonials
+} from "@/lib/siteData";
+
+export function generateMetadata() {
+  return buildPageMetadata(pageSeo.home);
+}
 
 export default function HomePage() {
   const featuredServices = services.slice(0, 4);
+  const serviceSchema = services.map((service) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${site.url}${service.href}#service`,
+    name: `${service.title} in Okara`,
+    serviceType: service.title,
+    description: service.longText,
+    provider: { "@id": `${site.url}/#localbusiness` },
+    areaServed: targetLocations.map((name) => ({ "@type": "City", name }))
+  }));
+  const relatedItems = services.slice(0, 6).map((service) => ({
+    label: service.title,
+    href: service.href,
+    text: service.keywords
+  }));
 
   return (
     <>
+      <SEO schemas={[buildFAQSchema(faqs, "home-faq"), ...serviceSchema]} />
+      <Breadcrumb items={[{ label: "Home", href: "/" }]} />
       <HeroCarousel />
 
       <section className="section-sm trust-section" aria-label="I.T LINKS trust highlights">
@@ -48,6 +84,9 @@ export default function HomePage() {
                 <span className="card-icon">{service.number}</span>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
+                <Link className="card-link" href={service.href}>
+                  Learn about {service.title}
+                </Link>
               </article>
             ))}
           </div>
@@ -55,6 +94,128 @@ export default function HomePage() {
             <Link className="btn btn-secondary" href="/services">
               See All Services
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section seo-copy-section">
+        <div className="container seo-copy reveal">
+          <p className="eyebrow">Local SEO Focus</p>
+          <h2>CCTV Installation Okara, CCTV Camera Shop Okara, and Network Solutions from I.T LINKS.</h2>
+          <p>
+            I.T LINKS CCTV Camera &amp; Network Solutions provides professional
+            CCTV installation in Okara for homes, shops, offices, schools,
+            warehouses, clinics, showrooms, factories, and commercial markets.
+            Customers searching for CCTV Installation Okara, CCTV Camera Shop
+            Okara, Security Camera Installation Okara, CCTV Camera Dealer Okara,
+            CCTV Services Okara, or CCTV Near Me can contact our local team for
+            practical advice, camera selection, clean installation, and reliable
+            after-sales support.
+          </p>
+          <p>
+            A strong security system starts with correct planning. We review the
+            entrance points, blind spots, counter areas, storage rooms, parking
+            space, rooftops, boundary walls, indoor corridors, and outdoor camera
+            locations before recommending a system. This helps customers avoid
+            weak coverage, unnecessary cameras, poor night visibility, loose
+            wiring, recorder issues, and mobile-view problems. Whether you need a
+            small home security system, a shop CCTV camera setup, an office
+            networking solution, a school monitoring system, or a warehouse
+            surveillance plan, I.T LINKS focuses on dependable daily use.
+          </p>
+          <p>
+            Our CCTV services include CCTV Camera Installation, CCTV Camera
+            Maintenance, IP Camera Installation, DVR/NVR Setup, Security Camera
+            Repair, WiFi &amp; Network Installation, Network Cabling, Router
+            Configuration, Office Networking, Home Security Systems, Solar Camera
+            Solutions, and CCTV AMC Services. We work with bullet cameras, dome
+            cameras, IP cameras, DVR systems, NVR systems, monitors, network
+            switches, cables, connectors, and accessories. We also help configure
+            supported mobile apps so customers can check live cameras and
+            playback when they are away from the property.
+          </p>
+          <p>
+            For local businesses in Okara, a properly installed surveillance
+            system is more than a camera purchase. It supports staff safety,
+            customer confidence, stock monitoring, entry control, cash counter
+            visibility, and better record keeping. For homes, CCTV can help watch
+            gates, driveways, courtyards, rooftops, and main rooms. For offices,
+            clean network cabling and router configuration can improve both
+            security camera stability and everyday connectivity. I.T LINKS brings
+            CCTV and network solutions together so the camera system is supported
+            by the right cabling, power planning, recorder settings, and network
+            configuration.
+          </p>
+          <p>
+            Many CCTV problems happen because the camera system is installed
+            without considering real viewing angles, night conditions, storage
+            requirements, or the network behind the recorder. A camera may be
+            high quality, but if it is pointed at the wrong angle, mounted too
+            high, installed with weak cable, or connected to an unstable router,
+            the final result can still disappoint the customer. I.T LINKS plans
+            each installation around the actual property. We look at where people
+            enter, where vehicles stop, where stock is kept, where staff members
+            work, and where evidence may be needed later. This practical approach
+            helps customers get useful footage instead of simply adding cameras
+            for decoration.
+          </p>
+          <p>
+            For shops and commercial markets, we commonly discuss counter
+            coverage, entry doors, storage racks, customer areas, cash handling
+            points, outdoor shutters, and nearby street visibility. For offices,
+            we consider reception areas, corridors, shared workspaces, router
+            placement, switch location, cable routes, and recorder access. For
+            homes, we help customers think through gates, driveways, terraces,
+            side passages, stairs, rooftop points, and indoor coverage where
+            needed. For schools, clinics, warehouses, and larger buildings, the
+            plan may include multiple cameras, monitor screens, DVR/NVR storage,
+            IP camera networking, and maintenance support.
+          </p>
+          <p>
+            Customers also call I.T LINKS for CCTV camera maintenance and repair
+            when an existing system stops working properly. Common issues include
+            blank camera feeds, no recording, weak night vision, incorrect time
+            settings, mobile app login problems, low storage, damaged connectors,
+            loose power supplies, and cable faults. Maintenance can often improve
+            an existing installation without replacing everything. When a system
+            needs an upgrade, we explain the practical options so the customer can
+            decide whether to add cameras, replace the recorder, improve storage,
+            upgrade to IP cameras, or improve the network.
+          </p>
+          <p>
+            Network solutions are important because modern security systems depend
+            on stable connectivity. I.T LINKS provides network cabling, WiFi and
+            router setup, office networking, switch installation, and router
+            configuration for customers who need reliable internet and CCTV access.
+            A clean network can make IP cameras more dependable, improve mobile
+            viewing, reduce connection drops, and make future expansion easier.
+            We keep the setup simple for the customer while making sure the core
+            wiring and configuration are strong enough for daily use.
+          </p>
+          <p>
+            We serve Okara and nearby locations including {targetLocations.join(", ")}.
+            If you are comparing CCTV camera dealers in Okara or looking for CCTV
+            maintenance in Okara, our team can inspect your current setup, suggest
+            upgrades, repair common camera faults, configure DVR/NVR recording,
+            improve WiFi coverage, or plan a new installation. Pricing is quoted
+            according to camera quantity, camera type, wiring distance, recording
+            days, storage requirements, mobile viewing needs, site size, and the
+            quality of equipment selected.
+          </p>
+          <p>
+            I.T LINKS is located opposite MZ Mobilz, near Alfalah Bank, Church
+            Road, Okara, Punjab, Pakistan 56300. Call {business.phone}, WhatsApp
+            {business.whatsappNumber}, or email {business.email} to discuss CCTV
+            installation, security camera repair, IP camera installation, DVR
+            installation, NVR setup, network cabling, router configuration, office
+            networking, or solar camera solutions. Our goal is simple: give local
+            customers a clean, trustworthy, and usable security system that works
+            when they need it.
+          </p>
+          <div className="keyword-list" aria-label="Primary local SEO keywords">
+            {primaryKeywords.map((keyword) => (
+              <span key={keyword}>{keyword}</span>
+            ))}
           </div>
         </div>
       </section>
@@ -149,6 +310,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <RelatedLinks items={relatedItems} />
+      <FAQSection faqs={faqs} title="CCTV Installation and Network Solutions FAQs" />
 
       <CTASection
         title="Need cameras, networking, or maintenance in Okara?"
