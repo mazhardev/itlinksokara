@@ -244,12 +244,17 @@ button {
 
 .hero-slider {
   position: relative;
+  display: grid;
 }
 
 .hero-slide {
+  grid-area: 1 / 1;
   min-height: 650px;
-  display: none;
+  display: block;
   padding: 92px 0 98px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   background:
     linear-gradient(115deg, rgba(7, 24, 47, 0.97), rgba(13, 41, 76, 0.92) 58%, rgba(7, 24, 47, 0.98)),
     linear-gradient(45deg, rgba(223, 39, 51, 0.2), rgba(22, 163, 106, 0.12));
@@ -268,7 +273,10 @@ button {
 }
 
 .hero-slide.is-active {
-  display: block;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   animation: slideFade 0.45s ease;
 }
 

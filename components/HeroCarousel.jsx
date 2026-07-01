@@ -137,6 +137,7 @@ export default function HeroCarousel() {
           <article
             className={`hero-slide ${index === activeIndex ? "is-active" : ""}`}
             key={slide.title}
+            aria-hidden={index !== activeIndex}
           >
             <div className="container hero-layout">
               <div className="hero-copy reveal">
