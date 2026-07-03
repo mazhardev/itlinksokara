@@ -18,9 +18,8 @@ export default function GalleryPage() {
             <p className="eyebrow">Recent Work</p>
             <h1>Gallery for CCTV installations, monitoring setups, and security products.</h1>
             <p>
-              A clean preview gallery for installation photos, product demos,
-              monitoring setups, and wiring work. Add real project photos to the
-              public images folder as they become available.
+              Browse recent I.T LINKS project photos featuring CCTV installation,
+              camera placement, monitoring setup, and professional security work.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" href="/contact">Book Installation</Link>
@@ -30,13 +29,13 @@ export default function GalleryPage() {
             </div>
           </div>
           <div className="page-hero-card reveal">
-            <strong>Gallery categories</strong>
-            <span>Monitor Setup</span>
-            <span>Multi-Camera</span>
-            <span>Shop Security</span>
-            <span>Outdoor Camera</span>
-            <span>Office Install</span>
-            <span>DVR / NVR</span>
+            <strong>Project highlights</strong>
+            <span>Allied School</span>
+            <span>Lubaba Marque</span>
+            <span>Mian Cash and Carry</span>
+            <span>Safe City Okara</span>
+            <span>Hafeez Computer</span>
+            <span>Shahbaaz Sharif School</span>
           </div>
         </div>
       </section>
@@ -45,10 +44,10 @@ export default function GalleryPage() {
         <div className="container">
           <div className="section-heading reveal">
             <p className="eyebrow">Installation Gallery</p>
-            <h2>Preview CCTV work with fast-loading placeholders.</h2>
+            <h2>Recent project photos from real CCTV and security work.</h2>
             <p>
-              The current site includes the I.T LINKS logo as the real image asset.
-              These cards are safe placeholders until real installation photos are added.
+              A professional look at completed school, retail, venue, industrial,
+              and city security installations.
             </p>
           </div>
           <GalleryLightbox items={galleryItems} />

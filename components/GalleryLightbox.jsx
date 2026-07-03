@@ -28,9 +28,15 @@ export default function GalleryLightbox({ items }) {
             key={item.title}
             onClick={() => setActiveItem(item)}
           >
-            <span className={`gallery-visual ${item.art}`}></span>
-            <strong>{item.title}</strong>
-            <small>{item.subtitle}</small>
+            <span className={`gallery-visual ${item.art || ""}`}>
+              {item.image ? (
+                <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
+              ) : null}
+            </span>
+            <span className="gallery-caption">
+              <strong>{item.title}</strong>
+              <small>{item.subtitle}</small>
+            </span>
           </button>
         ))}
       </div>
@@ -52,7 +58,11 @@ export default function GalleryLightbox({ items }) {
             >
               Close
             </button>
-            <div className={`lightbox-preview ${activeItem.art}`}></div>
+            <div className={`lightbox-preview ${activeItem.art || ""}`}>
+              {activeItem.image ? (
+                <img src={activeItem.image} alt={activeItem.imageAlt || activeItem.title} />
+              ) : null}
+            </div>
             <h2 id="lightbox-title">{activeItem.title}</h2>
             <p>{activeItem.text}</p>
           </div>

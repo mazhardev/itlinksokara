@@ -44,7 +44,6 @@ export default function Footer() {
           <p>{business.phone}</p>
           <p>{business.email}</p>
           <p>{business.streetAddress}, Okara</p>
-          <Link href="/contact">Get Directions</Link>
         </div>
       </div>
       <div className="footer-bottom">

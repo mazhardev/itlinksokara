@@ -25,7 +25,7 @@ function CTAButton({ href, children, className, external = false }) {
 export default function CTASection({
   kicker = "Free Consultation",
   title = "Need cameras, networking, or maintenance in Okara?",
-  text = "Call, WhatsApp, email, or visit the shop opposite MZ Mobilz near Alfalah Bank on Church Road.",
+  text = "Call, WhatsApp, email, or visit the shop on Church Road, opposite MZ Mobile in Block-F Block-E.",
   primaryLabel = `Call ${business.phone}`,
   primaryHref = business.phoneHref,
   secondaryLabel = "WhatsApp",

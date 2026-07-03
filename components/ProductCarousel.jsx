@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { products } from "@/lib/siteData";
+import { assetPath } from "@/lib/paths";
 
 export default function ProductCarousel() {
   const trackRef = useRef(null);
@@ -27,7 +28,11 @@ export default function ProductCarousel() {
       <div className="product-track" ref={trackRef}>
         {products.slice(0, 5).map((product) => (
           <article className="product-card" key={product.title}>
-            <div className={`product-visual ${product.art}`}></div>
+            <div className={`product-visual ${product.art} ${product.image ? "has-product-image" : ""}`}>
+              {product.image ? (
+                <img src={assetPath(product.image)} alt={product.imageAlt} />
+              ) : null}
+            </div>
             <h3>{product.title}</h3>
             <p>{product.text}</p>
             <Link href="/contact">Request Price</Link>

@@ -107,8 +107,8 @@ export default function AboutPage() {
 
       <CTASection
         kicker="Visit I.T LINKS"
-        title="Find us opposite MZ Mobilz near Alfalah Bank."
-        text="Church Road, Okara, Pakistan 56300. Open 9:00 AM - 8:00 PM."
+        title="Find us opposite MZ Mobile on Church Road."
+        text="Block-F Block-E, Okara, Pakistan 56300. Open 9:00 AM - 8:00 PM."
         primaryLabel="Contact Details"
         primaryHref="/contact"
       />

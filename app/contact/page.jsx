@@ -5,7 +5,7 @@ import { business } from "@/lib/siteData";
 export const metadata = {
   title: "Contact",
   description:
-    "Contact I.T LINKS CCTV Camera and Network Solutions Okara by phone, WhatsApp, email, or visit Church Road near Alfalah Bank."
+    "Contact I.T LINKS CCTV Camera and Network Solutions Okara by phone, WhatsApp, email, or visit Church Road opposite MZ Mobile."
 };
 
 export default function ContactPage() {
@@ -17,8 +17,8 @@ export default function ContactPage() {
             <p className="eyebrow">Contact I.T LINKS</p>
             <h1>Need cameras, networking, maintenance, or a site quote?</h1>
             <p>
-              Call, WhatsApp, email, or visit the shop opposite MZ Mobilz near
-              Alfalah Bank on Church Road, Okara.
+              Call, WhatsApp, email, or visit the shop on Church Road, opposite
+              MZ Mobile in Block-F Block-E, Okara.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href={business.phoneHref}>Call {business.phone}</a>
@@ -61,23 +61,25 @@ export default function ContactPage() {
 
       <section className="section alt-section">
         <div className="container split-grid">
-          <div className="map-placeholder reveal" aria-label="Google Map embed placeholder">
-            <div className="map-grid"></div>
-            <div className="map-pin"></div>
-            <strong>Google Map Embed Placeholder</strong>
-            <span>{business.streetAddress}, Okara</span>
+          <div className="map-placeholder reveal" aria-label="Google Maps location">
+            <iframe
+              className="map-frame"
+              title="I.T LINKS location on Google Maps"
+              src={business.mapEmbedUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
           <div className="content-panel reveal">
             <p className="eyebrow">Visit The Shop</p>
             <h2>Easy to find on Church Road, Okara.</h2>
             <p>
-              Use this map area for a Google Maps embed when the business map link
-              is available. The address is already included for customers and search
-              engines.
+              Open the Google Maps listing for quick directions to the I.T LINKS
+              shop on Church Road, opposite MZ Mobile in Okara.
             </p>
             <div className="benefit-list">
-              <span>Opposite MZ Mobilz</span>
-              <span>Near Alfalah Bank</span>
+              <span>Opposite MZ Mobile</span>
+              <span>Block-F Block-E</span>
               <span>Church Road, Okara</span>
               <span>Pakistan 56300</span>
             </div>

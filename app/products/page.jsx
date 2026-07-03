@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import { products } from "@/lib/siteData";
+import { assetPath } from "@/lib/paths";
 
 export const metadata = {
   title: "Products",
@@ -46,14 +47,18 @@ export default function ProductsPage() {
             <p className="eyebrow">Product Showcase</p>
             <h2>Security products we provide and install.</h2>
             <p>
-              Safe visual placeholders are used where product photos are not
-              available yet. Current pricing can be requested by phone or WhatsApp.
+              Browse real product photos from the CCTV camera, alarm, and solar
+              security solutions available through I.T LINKS.
             </p>
           </div>
           <div className="product-grid">
             {products.map((product) => (
               <article className="product-card reveal" key={product.title}>
-                <div className={`product-visual ${product.art}`}></div>
+                <div className={`product-visual ${product.art} ${product.image ? "has-product-image" : ""}`}>
+                  {product.image ? (
+                    <img src={assetPath(product.image)} alt={product.imageAlt} />
+                  ) : null}
+                </div>
                 <h3>{product.title}</h3>
                 <p>{product.text}</p>
                 <Link href="/contact">Request Price</Link>

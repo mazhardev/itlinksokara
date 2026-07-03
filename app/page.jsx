@@ -30,6 +30,17 @@ export default function HomePage() {
             <p>Responsive after-sales service from a local provider.</p>
           </article>
         </div>
+        <div className="container partner-banner reveal" aria-label="Brand partners">
+          <div className="partner-copy">
+            <span className="partner-kicker">Proud Partner</span>
+            <strong>Dahua &amp; Hikvision</strong>
+            <p>Trusted CCTV brands for dependable cameras, recorders, and security systems.</p>
+          </div>
+          <div className="partner-brands" aria-label="Dahua and Hikvision">
+            <span>Dahua</span>
+            <span>Hikvision</span>
+          </div>
+        </div>
       </section>
 
       <section className="section">
@@ -152,7 +163,7 @@ export default function HomePage() {
 
       <CTASection
         title="Need cameras, networking, or maintenance in Okara?"
-        text="Call, WhatsApp, email, or visit the shop opposite MZ Mobilz near Alfalah Bank on Church Road."
+        text="Call, WhatsApp, email, or visit the shop on Church Road, opposite MZ Mobile in Block-F Block-E."
         primaryLabel={`Call ${business.phone}`}
       />
     </>
