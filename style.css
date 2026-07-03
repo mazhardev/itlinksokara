@@ -1382,10 +1382,8 @@ button {
 
 .gallery-card {
   width: 100%;
-  min-height: 300px;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: block;
   padding: 0;
   text-align: left;
   background: var(--white);
@@ -1400,24 +1398,6 @@ button {
   min-height: 0;
   aspect-ratio: 4 / 3;
   background: var(--soft);
-}
-
-.gallery-card .gallery-caption {
-  display: block;
-  padding: 16px 18px 18px;
-}
-
-.gallery-card strong {
-  display: block;
-  color: var(--navy);
-  font-size: 1.05rem;
-  line-height: 1.35;
-}
-
-.gallery-card small {
-  margin-top: 4px;
-  color: var(--muted);
-  font-weight: 700;
 }
 
 .lightbox[hidden] {
@@ -1472,16 +1452,6 @@ button {
   height: min(68vh, 620px);
   min-height: 340px;
   background: #07182f;
-}
-
-.lightbox-dialog h2 {
-  margin: 24px 24px 8px;
-  color: var(--navy);
-}
-
-.lightbox-dialog p {
-  margin: 0 24px 26px;
-  color: var(--muted);
 }
 
 .contact-layout {

@@ -33,10 +33,6 @@ export default function GalleryLightbox({ items }) {
                 <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
               ) : null}
             </span>
-            <span className="gallery-caption">
-              <strong>{item.title}</strong>
-              <small>{item.subtitle}</small>
-            </span>
           </button>
         ))}
       </div>
@@ -49,7 +45,7 @@ export default function GalleryLightbox({ items }) {
             onClick={() => setActiveItem(null)}
             aria-label="Close gallery preview"
           ></button>
-          <div className="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+          <div className="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Project photo preview">
             <button
               className="lightbox-close"
               type="button"
@@ -63,8 +59,6 @@ export default function GalleryLightbox({ items }) {
                 <img src={activeItem.image} alt={activeItem.imageAlt || activeItem.title} />
               ) : null}
             </div>
-            <h2 id="lightbox-title">{activeItem.title}</h2>
-            <p>{activeItem.text}</p>
           </div>
         </div>
       ) : null}
