@@ -34,6 +34,9 @@ export default function ServicesPage() {
             <span>Schools</span>
             <span>Warehouses</span>
             <span>Commercial Markets</span>
+            <span>Factory</span>
+            <span>Rice Mills</span>
+            <span>Petrol Pumps</span>
           </div>
         </div>
       </section>

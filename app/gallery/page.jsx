@@ -32,10 +32,16 @@ export default function GalleryPage() {
             <strong>Project highlights</strong>
             <span>Allied School</span>
             <span>Lubaba Marque</span>
-            <span>Mian Cash and Carry</span>
             <span>Safe City Okara</span>
-            <span>Hafeez Computer</span>
             <span>Shahbaaz Sharif School</span>
+            <span>Grid Station Yousafwala</span>
+            <span>The Educators School</span>
+            <span>Police Stations</span>
+            <span>Rice Mills</span>
+            <span>Cold Stores</span>
+            <span>DPS Schools</span>
+            <span>Dar e Arqam School</span>
+            <span>Nawaz Sharif School</span>
           </div>
         </div>
       </section>

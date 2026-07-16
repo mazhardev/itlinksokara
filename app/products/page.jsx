@@ -31,12 +31,16 @@ export default function ProductsPage() {
           </div>
           <div className="page-hero-card reveal">
             <strong>Available categories</strong>
-            <span>Bullet Cameras</span>
-            <span>Dome Cameras</span>
+            <span>DVR/NVR</span>
+            <span>Analog Cameras</span>
             <span>IP Cameras</span>
-            <span>DVR / NVR Systems</span>
-            <span>Cables</span>
-            <span>Solar Security</span>
+            <span>WiFi Cameras</span>
+            <span>4G Camera</span>
+            <span>4G with Solar Camera</span>
+            <span>PTZ Cameras</span>
+            <span>Networking Accessories</span>
+            <span>Fiber Cabling</span>
+            <span>WiFi Routers</span>
           </div>
         </div>
       </section>
