@@ -41,9 +41,11 @@ export default function Footer() {
         </div>
         <div>
           <h3>Contact</h3>
-          <p>{business.phone}</p>
-          <p>{business.email}</p>
-          <p>{business.streetAddress}, Okara</p>
+          <a href={business.phoneHref}>{business.phone}</a>
+          <a href={business.emailHref}>{business.email}</a>
+          <a href={business.mapUrl} target="_blank" rel="noopener noreferrer">
+            {business.streetAddress}, Okara
+          </a>
         </div>
       </div>
       <div className="footer-bottom">

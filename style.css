@@ -1780,6 +1780,46 @@ button {
   margin: 0;
 }
 
+.gallery-card-copy {
+  display: grid;
+  gap: 5px;
+  padding: 18px;
+}
+
+.gallery-card-copy strong {
+  color: var(--navy);
+  font-size: 1.04rem;
+}
+
+.gallery-card-copy > span {
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gallery-card-copy small {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.lightbox-copy {
+  padding: 18px 20px 20px;
+  background: var(--white);
+}
+
+.lightbox-copy h2 {
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.lightbox-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .footer-bottom .developer-credit {
   margin-top: 6px;
 }

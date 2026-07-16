@@ -2,6 +2,7 @@ import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import HeroCarousel from "@/components/HeroCarousel";
 import ProductCarousel from "@/components/ProductCarousel";
+import PageSchema from "@/components/PageSchema";
 import { business, serviceAreas, services, testimonials } from "@/lib/siteData";
 import { assetPath } from "@/lib/paths";
 
@@ -10,6 +11,11 @@ export default function HomePage() {
 
   return (
     <>
+      <PageSchema
+        title="CCTV Camera Installation in Okara"
+        description={business.description}
+        path="/"
+      />
       <HeroCarousel />
 
       <section className="section-sm trust-section" aria-label="I.T LINKS trust highlights">

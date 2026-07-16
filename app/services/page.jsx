@@ -1,15 +1,28 @@
 import CTASection from "@/components/CTASection";
+import PageSchema from "@/components/PageSchema";
 import { services, serviceAreas } from "@/lib/siteData";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Services",
-  description:
-    "CCTV installation, maintenance, DVR/NVR setup, IP cameras, network cabling, WiFi router setup, monitoring, and solar security service in Okara."
-};
+const title = "CCTV Installation & Network Services";
+const description =
+  "CCTV installation, camera repair, DVR/NVR setup, IP cameras, network cabling, WiFi setup, monitoring, and solar security services in Okara.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/services",
+  keywords: [
+    "CCTV installation Okara",
+    "CCTV camera repair Okara",
+    "network cabling Okara",
+    "DVR NVR setup Okara"
+  ]
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <PageSchema title={title} description={description} path="/services" />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">

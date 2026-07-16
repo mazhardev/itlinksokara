@@ -1,17 +1,30 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import PageSchema from "@/components/PageSchema";
 import { assetPath } from "@/lib/paths";
 import { business } from "@/lib/siteData";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "About",
-  description:
-    "About I.T LINKS CCTV Camera and Network Solutions Okara, a local CCTV camera store, network solutions, and solar energy service provider."
-};
+const title = "About I.T LINKS CCTV Solutions";
+const description =
+  "Meet I.T LINKS, an Okara-based CCTV camera, network cabling, maintenance, and solar security provider serving homes, shops, offices, and schools.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/about",
+  keywords: ["I.T LINKS Okara", "CCTV company Okara", "security camera installer Okara"]
+});
 
 export default function AboutPage() {
   return (
     <>
+      <PageSchema
+        title={title}
+        description={description}
+        path="/about"
+        type="AboutPage"
+      />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">

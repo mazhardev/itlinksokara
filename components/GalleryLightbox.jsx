@@ -96,10 +96,16 @@ export default function GalleryLightbox({ items }) {
             className="gallery-card reveal"
             type="button"
             key={item.title}
+            aria-label={`View ${item.title}`}
             onClick={() => setActiveItem(item)}
           >
             <span className={`gallery-visual ${item.art || ""}`}>
               <GalleryMedia item={item} />
+            </span>
+            <span className="gallery-card-copy">
+              <strong>{item.title}</strong>
+              <span>{item.subtitle}</span>
+              <small>{item.text}</small>
             </span>
           </button>
         ))}
@@ -113,7 +119,7 @@ export default function GalleryLightbox({ items }) {
             onClick={() => setActiveItem(null)}
             aria-label="Close gallery preview"
           ></button>
-          <div className="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Project media preview">
+          <div className="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
             <button
               className="lightbox-close"
               type="button"
@@ -124,6 +130,10 @@ export default function GalleryLightbox({ items }) {
             </button>
             <div className={`lightbox-preview ${activeItem.art || ""}`}>
               <GalleryMedia item={activeItem} immediate lightbox />
+            </div>
+            <div className="lightbox-copy">
+              <h2 id="lightbox-title">{activeItem.title}</h2>
+              <p>{activeItem.text}</p>
             </div>
           </div>
         </div>

@@ -1,16 +1,33 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import PageSchema from "@/components/PageSchema";
 import { packages } from "@/lib/siteData";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Packages",
-  description:
-    "Custom CCTV camera packages for homes, shops, offices, and larger properties in Okara. Basic, business, and premium surveillance quotes."
-};
+const title = "CCTV Camera Packages in Okara";
+const description =
+  "Compare custom CCTV camera packages for homes, shops, offices, schools, and larger properties in Okara, including installation and mobile viewing.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/packages",
+  keywords: [
+    "CCTV packages Okara",
+    "home security camera package Okara",
+    "business CCTV package Okara"
+  ]
+});
 
 export default function PackagesPage() {
   return (
     <>
+      <PageSchema
+        title={title}
+        description={description}
+        path="/packages"
+        type="CollectionPage"
+      />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">

@@ -1,16 +1,29 @@
 import CTASection from "@/components/CTASection";
 import ContactForm from "@/components/ContactForm";
+import PageSchema from "@/components/PageSchema";
 import { business } from "@/lib/siteData";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Contact",
-  description:
-    "Contact I.T LINKS CCTV Camera and Network Solutions Okara by phone, WhatsApp, email, or visit Church Road opposite MZ Mobile."
-};
+const title = "Contact I.T LINKS CCTV Okara";
+const description =
+  "Call, WhatsApp, email, or visit I.T LINKS on Church Road, Okara for CCTV installation, camera repair, networking, products, and custom quotes.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/contact",
+  keywords: ["contact CCTV installer Okara", "CCTV shop Church Road Okara"]
+});
 
 export default function ContactPage() {
   return (
     <>
+      <PageSchema
+        title={title}
+        description={description}
+        path="/contact"
+        type="ContactPage"
+      />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">

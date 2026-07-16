@@ -1,17 +1,34 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import GalleryLightbox from "@/components/GalleryLightbox";
+import PageSchema from "@/components/PageSchema";
 import { galleryItems } from "@/lib/siteData";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Gallery",
-  description:
-    "Gallery for CCTV installations, monitoring setups, product demos, and DVR/NVR configuration previews by I.T LINKS Okara."
-};
+const title = "CCTV Installation Projects & Gallery";
+const description =
+  "See real CCTV installation projects, camera placements, control rooms, monitoring setups, schools, shops, and commercial security work in Okara.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/gallery",
+  keywords: [
+    "CCTV installation projects Okara",
+    "security camera installation gallery",
+    "Safe City Okara CCTV"
+  ]
+});
 
 export default function GalleryPage() {
   return (
     <>
+      <PageSchema
+        title={title}
+        description={description}
+        path="/gallery"
+        type="ImageGallery"
+      />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">

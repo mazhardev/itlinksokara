@@ -1,17 +1,35 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import PageSchema from "@/components/PageSchema";
 import { products } from "@/lib/siteData";
 import { assetPath } from "@/lib/paths";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Products",
-  description:
-    "CCTV cameras, DVR/NVR systems, monitors, network switches, cables, connectors, and solar security solutions in Okara."
-};
+const title = "CCTV Cameras, DVR & NVR Products";
+const description =
+  "Shop CCTV cameras, DVR and NVR systems, monitors, network switches, cables, WiFi cameras, and solar security products with installation in Okara.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/products",
+  keywords: [
+    "CCTV camera price Okara",
+    "DVR NVR Okara",
+    "Dahua cameras Okara",
+    "Hikvision cameras Okara"
+  ]
+});
 
 export default function ProductsPage() {
   return (
     <>
+      <PageSchema
+        title={title}
+        description={description}
+        path="/products"
+        type="CollectionPage"
+      />
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
