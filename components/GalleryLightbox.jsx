@@ -1,6 +1,76 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+function CameraLoader() {
+  return (
+    <span className="gallery-loader" role="status" aria-label="Loading gallery media">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M15 13l3-5h12l3 5h5a6 6 0 016 6v17a6 6 0 01-6 6H10a6 6 0 01-6-6V19a6 6 0 016-6h5z" />
+        <circle cx="24" cy="27" r="9" />
+        <circle cx="38" cy="19" r="2" />
+      </svg>
+    </span>
+  );
+}
+
+function GalleryMedia({ item, immediate = false, lightbox = false }) {
+  const sentinelRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(immediate);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (immediate) {
+      setShouldLoad(true);
+      return undefined;
+    }
+
+    const target = sentinelRef.current;
+    if (!target) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [immediate]);
+
+  return (
+    <span ref={sentinelRef} className="gallery-media-sentinel">
+      {!loaded ? <CameraLoader /> : null}
+      {shouldLoad && item.video ? (
+        <video
+          className={loaded ? "is-loaded" : ""}
+          src={item.video}
+          muted={!lightbox}
+          controls={lightbox}
+          autoPlay={lightbox}
+          playsInline
+          preload={lightbox ? "auto" : "metadata"}
+          onLoadedData={() => setLoaded(true)}
+        />
+      ) : shouldLoad && item.image ? (
+        <img
+          className={loaded ? "is-loaded" : ""}
+          src={item.image}
+          alt={item.imageAlt || item.title}
+          loading={lightbox ? "eager" : "lazy"}
+          onLoad={() => setLoaded(true)}
+        />
+      ) : null}
+      {item.video && !lightbox && loaded ? (
+        <span className="gallery-play" aria-hidden="true">Play</span>
+      ) : null}
+    </span>
+  );
+}
 
 export default function GalleryLightbox({ items }) {
   const [activeItem, setActiveItem] = useState(null);
@@ -29,12 +99,7 @@ export default function GalleryLightbox({ items }) {
             onClick={() => setActiveItem(item)}
           >
             <span className={`gallery-visual ${item.art || ""}`}>
-              {item.video ? (
-                <video src={item.video} muted playsInline preload="metadata" />
-              ) : item.image ? (
-                <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
-              ) : null}
-              {item.video ? <span className="gallery-play" aria-hidden="true">Play</span> : null}
+              <GalleryMedia item={item} />
             </span>
           </button>
         ))}
@@ -58,11 +123,7 @@ export default function GalleryLightbox({ items }) {
               Close
             </button>
             <div className={`lightbox-preview ${activeItem.art || ""}`}>
-              {activeItem.video ? (
-                <video src={activeItem.video} controls autoPlay playsInline />
-              ) : activeItem.image ? (
-                <img src={activeItem.image} alt={activeItem.imageAlt || activeItem.title} />
-              ) : null}
+              <GalleryMedia item={activeItem} immediate lightbox />
             </div>
           </div>
         </div>

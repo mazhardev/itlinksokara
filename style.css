@@ -837,18 +837,25 @@ button {
 }
 
 .partner-brands span {
-  min-width: 132px;
-  min-height: 54px;
+  width: 180px;
+  min-height: 72px;
   display: inline-grid;
   place-items: center;
-  padding: 12px 18px;
+  padding: 8px 12px;
   color: var(--navy);
-  background: var(--white);
+  background: #000;
   border: 1px solid rgba(255, 255, 255, 0.36);
   border-radius: var(--radius);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
   font-size: 1.06rem;
   font-weight: 900;
+}
+
+.partner-brands img {
+  width: 100%;
+  height: 54px;
+  display: block;
+  object-fit: contain;
 }
 
 .section-heading {
@@ -994,12 +1001,20 @@ button {
   inset: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.35s ease;
+}
+
+.gallery-visual img.is-loaded,
+.gallery-visual video.is-loaded,
+.lightbox-preview img.is-loaded,
+.lightbox-preview video.is-loaded {
+  opacity: 1;
 }
 
 .gallery-visual img,
 .gallery-visual video {
   object-fit: cover;
-  transition: transform 0.35s ease;
 }
 
 .gallery-card:hover .gallery-visual img,
@@ -1024,6 +1039,54 @@ button {
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 900;
+}
+
+.gallery-media-sentinel {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.gallery-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  background: linear-gradient(135deg, #f8fafc, #e8eef5);
+}
+
+.gallery-loader svg {
+  width: 54px;
+  height: 54px;
+  overflow: visible;
+  animation: gallery-camera-pulse 1.15s ease-in-out infinite;
+}
+
+.gallery-loader path {
+  fill: var(--navy);
+}
+
+.gallery-loader circle:first-of-type {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 4;
+}
+
+.gallery-loader circle:last-of-type {
+  fill: var(--red);
+}
+
+@keyframes gallery-camera-pulse {
+  0%, 100% { transform: scale(0.94); opacity: 0.72; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-loader svg {
+    animation: none;
+  }
 }
 
 .product-visual.has-product-image::before,
@@ -1943,6 +2006,7 @@ button {
   }
 
   .partner-brands span {
+    width: 100%;
     min-width: 0;
   }
 

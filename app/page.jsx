@@ -3,6 +3,7 @@ import CTASection from "@/components/CTASection";
 import HeroCarousel from "@/components/HeroCarousel";
 import ProductCarousel from "@/components/ProductCarousel";
 import { business, serviceAreas, services, testimonials } from "@/lib/siteData";
+import { assetPath } from "@/lib/paths";
 
 export default function HomePage() {
   const featuredServices = services.slice(0, 4);
@@ -37,8 +38,12 @@ export default function HomePage() {
             <p>Trusted CCTV brands for dependable cameras, recorders, and security systems.</p>
           </div>
           <div className="partner-brands" aria-label="Dahua and Hikvision">
-            <span>Dahua</span>
-            <span>Hikvision</span>
+            <span>
+              <img src={assetPath("/images/brands/dahua-logo.jpeg")} alt="Dahua logo" />
+            </span>
+            <span>
+              <img src={assetPath("/images/brands/hikvision-logo.jpeg")} alt="Hikvision logo" />
+            </span>
           </div>
         </div>
       </section>
