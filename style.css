@@ -1780,6 +1780,17 @@ button {
   margin: 0;
 }
 
+.footer-bottom .developer-credit {
+  margin-top: 6px;
+}
+
+.footer-bottom .developer-credit a {
+  display: inline;
+  margin: 0;
+  color: var(--white);
+  font-weight: 800;
+}
+
 .back-to-top {
   width: 48px;
   height: 48px;

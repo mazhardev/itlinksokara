@@ -50,6 +50,16 @@ export default function Footer() {
         <p>
           &copy; 2026 {business.name}. All rights reserved.
         </p>
+        <p className="developer-credit">
+          Developed by{" "}
+          <a
+            href="https://web.facebook.com/protechnologiespvt"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pro Technologies
+          </a>
+        </p>
       </div>
     </footer>
   );
