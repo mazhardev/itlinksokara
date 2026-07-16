@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { business } from "@/lib/siteData";
+import { assetPath } from "@/lib/paths";
 
 const slides = [
   {
@@ -132,6 +133,16 @@ export default function HeroCarousel() {
 
   return (
     <section className="hero-carousel" aria-label="I.T LINKS featured security solutions">
+      <video
+        className="hero-background-video"
+        src={assetPath("/images/projects/additional-gallery/cctv-project-video-02.mp4")}
+        autoPlay={!reduceMotion}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
       <div className="hero-slider">
         {slides.map((slide, index) => (
           <article
