@@ -29,9 +29,12 @@ export default function GalleryLightbox({ items }) {
             onClick={() => setActiveItem(item)}
           >
             <span className={`gallery-visual ${item.art || ""}`}>
-              {item.image ? (
+              {item.video ? (
+                <video src={item.video} muted playsInline preload="metadata" />
+              ) : item.image ? (
                 <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
               ) : null}
+              {item.video ? <span className="gallery-play" aria-hidden="true">Play</span> : null}
             </span>
           </button>
         ))}
@@ -45,7 +48,7 @@ export default function GalleryLightbox({ items }) {
             onClick={() => setActiveItem(null)}
             aria-label="Close gallery preview"
           ></button>
-          <div className="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Project photo preview">
+          <div className="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Project media preview">
             <button
               className="lightbox-close"
               type="button"
@@ -55,7 +58,9 @@ export default function GalleryLightbox({ items }) {
               Close
             </button>
             <div className={`lightbox-preview ${activeItem.art || ""}`}>
-              {activeItem.image ? (
+              {activeItem.video ? (
+                <video src={activeItem.video} controls autoPlay playsInline />
+              ) : activeItem.image ? (
                 <img src={activeItem.image} alt={activeItem.imageAlt || activeItem.title} />
               ) : null}
             </div>
