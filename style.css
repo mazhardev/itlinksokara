@@ -870,13 +870,14 @@ button {
 
 .partner-brands span {
   width: 180px;
-  min-height: 72px;
+  height: 80px;
+  min-width: 0;
   display: inline-grid;
   place-items: center;
-  padding: 8px 12px;
+  padding: 14px 18px;
   color: var(--navy);
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.36);
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
   font-size: 1.06rem;
@@ -885,7 +886,8 @@ button {
 
 .partner-brands img {
   width: 100%;
-  height: 54px;
+  height: auto;
+  max-height: 48px;
   display: block;
   object-fit: contain;
 }

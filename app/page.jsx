@@ -46,10 +46,10 @@ export default function HomePage() {
           </div>
           <div className="partner-brands" aria-label="Dahua and Hikvision">
             <span>
-              <img src={assetPath("/images/brands/dahua-logo.jpeg")} alt="Dahua logo" />
+              <img src={assetPath("/images/brands/dahua-logo.svg")} alt="Dahua Technology logo" width="156" height="49" />
             </span>
             <span>
-              <img src={assetPath("/images/brands/hikvision-logo.jpeg")} alt="Hikvision logo" />
+              <img src={assetPath("/images/brands/hikvision-logo.svg")} alt="Hikvision logo" width="156" height="32" />
             </span>
           </div>
         </div>
