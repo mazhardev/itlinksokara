@@ -1,13 +1,13 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import PageSchema from "@/components/PageSchema";
-import { products } from "@/lib/siteData";
-import { assetPath } from "@/lib/paths";
+import ProductCatalog from "@/components/ProductCatalog";
+import { productCategories } from "@/lib/products";
 import { createPageMetadata } from "@/lib/seo";
 
-const title = "CCTV Cameras, DVR & NVR Products";
+const title = "Dahua Cameras & Security Products";
 const description =
-  "Shop CCTV cameras, DVR and NVR systems, monitors, network switches, cables, WiFi cameras, and solar security products with installation in Okara.";
+  "Explore Dahua HDCVI and IP cameras, PoE switches, CAT6 cable, video intercoms, and security accessories. Request a product quote from I.T LINKS Okara.";
 
 export const metadata = createPageMetadata({
   title,
@@ -17,7 +17,7 @@ export const metadata = createPageMetadata({
     "CCTV camera price Okara",
     "DVR NVR Okara",
     "Dahua cameras Okara",
-    "Hikvision cameras Okara"
+    "Dahua accessories Okara"
   ]
 });
 
@@ -33,12 +33,12 @@ export default function ProductsPage() {
       <section className="page-hero">
         <div className="container page-hero-grid">
           <div className="reveal">
-            <p className="eyebrow">Store Products</p>
-            <h1>CCTV cameras, recorders, monitors, and networking accessories.</h1>
+            <p className="eyebrow">Dahua Product Collection</p>
+            <h1>Dahua cameras, networking, and security accessories.</h1>
             <p>
-              Choose from CCTV cameras, recording systems, monitors, networking
-              accessories, and solar security solutions for homes and businesses
-              in Okara.
+              Find the right Dahua products for your home, shop, or business.
+              Browse cameras and accessories by category, then ask our Okara
+              team for current pricing, availability, and installation guidance.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" href="/contact">Request Price</Link>
@@ -49,16 +49,7 @@ export default function ProductsPage() {
           </div>
           <div className="page-hero-card reveal">
             <strong>Available categories</strong>
-            <span>DVR/NVR</span>
-            <span>Analog Cameras</span>
-            <span>IP Cameras</span>
-            <span>WiFi Cameras</span>
-            <span>4G Camera</span>
-            <span>4G with Solar Camera</span>
-            <span>PTZ Cameras</span>
-            <span>Networking Accessories</span>
-            <span>Fiber Cabling</span>
-            <span>WiFi Routers</span>
+            {productCategories.map((category) => <span key={category}>{category}</span>)}
           </div>
         </div>
       </section>
@@ -67,26 +58,13 @@ export default function ProductsPage() {
         <div className="container">
           <div className="section-heading reveal">
             <p className="eyebrow">Product Showcase</p>
-            <h2>Security products we provide and install.</h2>
+            <h2>Explore the Dahua range.</h2>
             <p>
-              Browse real product photos from the CCTV camera, alarm, and solar
-              security solutions available through I.T LINKS.
+              Compare model numbers and key features across our Dahua collection.
+              Request a quote for your selected product directly on WhatsApp.
             </p>
           </div>
-          <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card reveal" key={product.title}>
-                <div className={`product-visual ${product.art} ${product.image ? "has-product-image" : ""}`}>
-                  {product.image ? (
-                    <img src={assetPath(product.image)} alt={product.imageAlt} />
-                  ) : null}
-                </div>
-                <h3>{product.title}</h3>
-                <p>{product.text}</p>
-                <Link href="/contact">Request Price</Link>
-              </article>
-            ))}
-          </div>
+          <ProductCatalog />
         </div>
       </section>
 
@@ -119,8 +97,8 @@ export default function ProductsPage() {
 
       <CTASection
         kicker="Product Quote"
-        title="Ask for current CCTV camera and DVR/NVR prices."
-        text="I.T LINKS can recommend products based on your property and budget."
+        title="Ask for current Dahua product prices."
+        text="Share a model number or tell us about your site for a tailored quote."
       />
     </>
   );

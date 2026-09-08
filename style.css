@@ -890,6 +890,132 @@ button {
   object-fit: contain;
 }
 
+.reseller-section {
+  padding: 24px 0 0;
+}
+
+.reseller-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  padding: clamp(24px, 4vw, 52px);
+  background: linear-gradient(120deg, #fbf8f1, #ffffff);
+  border: 1px solid #e8dfcc;
+  border-top: 3px solid #b58b42;
+  border-radius: var(--radius);
+}
+
+.reseller-eyebrow {
+  margin: 0 0 18px;
+  color: #785b2c;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.reseller-copy h2 {
+  max-width: 540px;
+  margin: 0 0 20px;
+  color: var(--navy);
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.reseller-description {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.reseller-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 36px;
+  margin: 28px 0;
+  padding: 22px 0;
+  border-block: 1px solid #e8dfcc;
+}
+
+.reseller-details dt {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.reseller-details dd {
+  margin: 0;
+  color: var(--navy);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.reseller-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 24px;
+}
+
+.reseller-certificate-link {
+  color: var(--navy);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.reseller-certificate-link:hover {
+  color: var(--red);
+}
+
+.reseller-card a:focus-visible {
+  outline: 3px solid var(--navy-3);
+  outline-offset: 6px;
+}
+
+.reseller-document {
+  width: 100%;
+  max-width: 320px;
+  margin: 0;
+  justify-self: center;
+}
+
+.reseller-document a {
+  display: block;
+  box-shadow: 0 12px 30px rgba(87, 65, 29, 0.14);
+}
+
+.reseller-document img {
+  width: 100%;
+  height: auto;
+}
+
+.reseller-document figcaption {
+  margin-top: 14px;
+  color: #785b2c;
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.reseller-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .reseller-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .section-heading {
   max-width: 780px;
   margin-bottom: 42px;
@@ -1047,6 +1173,116 @@ button {
 .gallery-visual img,
 .gallery-visual video {
   object-fit: cover;
+}
+
+.dahua-product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dahua-product-card .product-visual {
+  aspect-ratio: 1;
+  min-height: 0;
+  flex-shrink: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.dahua-product-card .product-visual img {
+  object-fit: contain;
+}
+
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+
+.product-labels {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.product-brand {
+  padding: 3px 8px;
+  color: var(--red-dark);
+  background: #fff0f1;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+.dahua-product-card h3 {
+  margin: 14px 0 8px;
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+
+.dahua-product-card .product-model {
+  margin: 0 0 12px;
+  color: var(--navy-3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.dahua-product-card .product-description {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+}
+
+.dahua-product-card .product-inquiry {
+  justify-content: space-between;
+  gap: 12px;
+  margin: auto 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+
+.product-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-filters button {
+  min-height: 44px;
+  padding: 10px 16px;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.product-filters button:hover {
+  border-color: var(--navy-3);
+}
+
+.product-filters button[aria-pressed="true"] {
+  color: var(--white);
+  background: var(--navy-3);
+  border-color: var(--navy-3);
+}
+
+.product-filters button:focus-visible,
+.product-inquiry:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 4px;
+}
+
+.product-results {
+  margin: 20px 0 24px;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 .gallery-card:hover .gallery-visual img,

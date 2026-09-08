@@ -3,6 +3,7 @@ import CTASection from "@/components/CTASection";
 import HeroCarousel from "@/components/HeroCarousel";
 import ProductCarousel from "@/components/ProductCarousel";
 import PageSchema from "@/components/PageSchema";
+import ResellerCertificate from "@/components/ResellerCertificate";
 import { business, serviceAreas, services, testimonials } from "@/lib/siteData";
 import { assetPath } from "@/lib/paths";
 
@@ -54,6 +55,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ResellerCertificate />
+
       <section className="section">
         <div className="container">
           <div className="section-heading reveal">
@@ -84,14 +87,17 @@ export default function HomePage() {
       <section className="section alt-section">
         <div className="container">
           <div className="section-heading reveal">
-            <p className="eyebrow">Security Products</p>
-            <h2>Reliable cameras, recorders, cables, and network accessories.</h2>
+            <p className="eyebrow">Dahua Security Products</p>
+            <h2>Dahua cameras and accessories for your next installation.</h2>
             <p>
-              Browse the core products available through I.T LINKS and request
-              current pricing for your site.
+              Explore selected Dahua models for surveillance, networking, and
+              entry communication. Ask I.T LINKS for current prices and availability.
             </p>
           </div>
           <ProductCarousel />
+          <div className="section-action">
+            <Link className="btn btn-secondary" href="/products">View All Dahua Products</Link>
+          </div>
         </div>
       </section>
 

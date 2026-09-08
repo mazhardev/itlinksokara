@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
-import { products } from "@/lib/siteData";
-import { assetPath } from "@/lib/paths";
+import { products } from "@/lib/products";
+import ProductCard from "@/components/ProductCard";
 
 export default function ProductCarousel() {
   const trackRef = useRef(null);
@@ -26,17 +25,8 @@ export default function ProductCarousel() {
         Prev
       </button>
       <div className="product-track" ref={trackRef}>
-        {products.slice(0, 5).map((product) => (
-          <article className="product-card" key={product.title}>
-            <div className={`product-visual ${product.art} ${product.image ? "has-product-image" : ""}`}>
-              {product.image ? (
-                <img src={assetPath(product.image)} alt={product.imageAlt} />
-              ) : null}
-            </div>
-            <h3>{product.title}</h3>
-            <p>{product.text}</p>
-            <Link href="/contact">Request Price</Link>
-          </article>
+        {products.filter((product) => product.featured).map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
       <button
